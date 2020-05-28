@@ -1,7 +1,6 @@
 version: "3"
-
 services:
-    client:
+    webserver:
         image: nginx
         ports:
             - 8000:80
@@ -26,4 +25,13 @@ services:
         env_file:
             - ./db.env
         command: /seed_database/load-schema.sh
+
+    client:
+        image: percona
+        links:
+            - database:db
+            - webserver:web
+        env_file:
+            - ./db.env
+        command: /bin/bash
 

@@ -16,3 +16,4 @@ Sets up a multi app env with web server and database
 - More advanced Makefile
 - Targets specific compose services
 - leverages a utility container to load db schema
+- Provides a cli client to interface with the application servers
