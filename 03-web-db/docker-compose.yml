@@ -7,6 +7,7 @@ services:
             - 8000:80
         volumes:
             - ./src:/usr/share/nginx/html
+
     database:
         image: percona
         ports:
@@ -15,6 +16,7 @@ services:
             - ./data:/var/lib/mysql:rw
         env_file:
             - ./db.env
+
     data_load:
         image: percona
         volumes:

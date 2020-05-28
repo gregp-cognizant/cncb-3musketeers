@@ -1,6 +1,6 @@
-
+.PHONY : test run destroy clean test_web test_db help
 .DEFAULT_GOAL := help
-test: test_web test_db 
+test: test_web test_db ## runs all tests
 
 run: ## deploys the application
 	docker-compose up -d client
@@ -10,7 +10,7 @@ run: ## deploys the application
 
 	docker-compose up data_load
 
-down: ## shuts everything down
+destroy: ## shuts everything down
 	docker-compose down --remove-orphans
 
 clean: ## resets env

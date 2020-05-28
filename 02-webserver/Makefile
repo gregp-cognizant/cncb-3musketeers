@@ -1,13 +1,12 @@
 COMPOSE_UP_CMD = docker-compose up --detach
 COMPOSE_DOWN_CMD = docker-compose down --remove-orphans
-APP_COMPOSE_FILE = ./docker-compose.yml
 
-all: run test down
+all: run test destroy
 
 run:
 	${COMPOSE_UP_CMD}
 
-down: 
+destroy: 
 	${COMPOSE_DOWN_CMD}
 
 test:
@@ -15,9 +14,9 @@ test:
 
 help:
 	echo "Targets:"
-	echo "   run: launches the app"
-	echo "  down: destroys the app"
-	echo "  test: runs the application tests"
-	echo "   all: executes run, test, down in that order"
-	echo "  help: prints this message"
+	echo "    run: launches the app"
+	echo "destroy: destroys the app"
+	echo "   test: runs the application tests"
+	echo "    all: executes run, test, destroy in that order"
+	echo "   help: prints this message"
 
