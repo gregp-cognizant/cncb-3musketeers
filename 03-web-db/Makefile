@@ -6,7 +6,8 @@ run: ## deploys the application
 	docker-compose up -d webserver
 	docker-compose up -d database
 
-	sleep 30
+	# TODO add a healthcheck to the app so we don't have this awful wait
+	sleep 15
 
 	docker-compose run --rm data_load
 
