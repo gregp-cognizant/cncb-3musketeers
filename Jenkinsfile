@@ -6,6 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo 'really gonna build now'
+                sh 'ls -l'
             }
         }
         stage('Test') {
