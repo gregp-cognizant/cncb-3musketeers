@@ -9,7 +9,6 @@ pipeline {
                 sh 'ls -l'
                 dir("./03-web-db") {
                   sh 'pwd'
-                  sh 'ls -lh /usr/local/bin/'
                   sh 'PATH=${PATH}:/usr/local/bin && make run'
                 }
 
