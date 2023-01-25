@@ -7,7 +7,7 @@ run: ## deploys the application
 	docker-compose up -d database
 
 	# TODO add a healthcheck to the app so we don't have this awful wait
-	sleep 15
+	sleep 30
 
 	docker-compose run --rm data_load
 
@@ -19,12 +19,14 @@ destroy: ## shuts everything down and cleans up the env
 clean: ## resets env
 	@echo "Cleaning Database directory"
 	rm -rf ./data/*
-	
+
 test_web: ## runs web tests
 	@echo "Running Web Tests..."
 	make -f ./test.web.Makefile all
 
 test_db: ## runs database tests
+	# @echo "seeding the database"
+	# docker-compose up -d dataload
 	@echo "Running DB Tests..."
 	make -f ./test.db.Makefile all
 
@@ -33,5 +35,3 @@ client: ## runs a container as an interactive terminal
 
 help: ## prints this message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-	
-

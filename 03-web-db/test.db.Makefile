@@ -10,4 +10,3 @@ help:
 	echo "  test: runs the tests"
 	echo "   all: runs the tests (only relevant target)"
 	echo "  help: prints this message"
-

@@ -33,5 +33,4 @@ services:
             - webserver:web
         env_file:
             - ./db.env
-        command: /bin/bash
-
+        command: /usr/bin/mysql -h db
