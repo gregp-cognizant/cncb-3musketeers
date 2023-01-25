@@ -17,7 +17,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'make test'
+                dir("./03-web-db") {
+                  sh 'PATH=${PATH}:/usr/local/bin && make test'
             }
         }
     }
