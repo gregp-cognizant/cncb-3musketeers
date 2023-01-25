@@ -5,12 +5,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Building..'
-                echo 'really gonna build now'
                 sh 'pwd'
                 sh 'ls -l'
-                sh 'cd 03-web-db'
-                sh 'pwd'
-                sh 'make run'
+                dir("./03-web-db") {
+                  sh 'pwd'
+                  sh 'make run'
+                }
+
             }
         }
         stage('Test') {
