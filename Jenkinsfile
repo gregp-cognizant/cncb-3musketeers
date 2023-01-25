@@ -19,6 +19,7 @@ pipeline {
                 echo 'Testing..'
                 dir("./03-web-db") {
                   sh 'PATH=${PATH}:/usr/local/bin && make test'
+                }
             }
         }
     }
