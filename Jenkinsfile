@@ -9,6 +9,7 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -l'
                 sh 'cd 03-web-db'
+                sh 'pwd'
                 sh 'make run'
             }
         }
