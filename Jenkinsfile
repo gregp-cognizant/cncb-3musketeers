@@ -9,7 +9,7 @@ pipeline {
                 sh 'ls -l'
                 dir("./03-web-db") {
                   sh 'pwd'
-                  sh 'which docker-compose'
+                  sh 'docker-compose -h'
                 }
 
             }
