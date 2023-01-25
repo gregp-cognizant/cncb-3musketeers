@@ -2,21 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Deploy') {
             steps {
                 echo 'Building..'
                 echo 'really gonna build now'
                 sh 'ls -l'
+                sh 'cd 03-web-db'
+                sh 'make run'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh 'make test'
             }
         }
     }
