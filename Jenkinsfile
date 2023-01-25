@@ -10,6 +10,7 @@ pipeline {
                 dir("./03-web-db") {
                   sh 'pwd'
                   sh '$PATH=${PATH}:/usr/local/bin'
+                  sh 'ls -lh /usr/local/bin/docker'
                   sh '/usr/local/bin/docker-compose -h'
                 }
 
