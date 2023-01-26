@@ -2,6 +2,10 @@
 .DEFAULT_GOAL := help
 test: test_web test_db ## runs all tests
 
+build:  ## since we have no custom images, this will just pull the latest containers
+	docker pull nginx
+	docker pull percona
+
 run: ## deploys the application
 	docker-compose up -d webserver
 	docker-compose up -d database

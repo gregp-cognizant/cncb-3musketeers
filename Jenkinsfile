@@ -4,13 +4,16 @@ pipeline {
       PATH = "${env.PATH}:/usr/local/bin"
     }
     stages {
+        stage ('Build') {
+          steps {
+            echo 'Building...'
+            sh 'make build'
+          }
+        }
         stage('Deploy') {
             steps {
-                echo 'Building..'
-                sh 'pwd'
-                sh 'ls -l'
+                echo 'Deploying.'
                 dir("./03-web-db") {
-                  sh 'pwd'
                   sh 'make run'
                 }
 
