@@ -7,7 +7,9 @@ pipeline {
         stage ('Build') {
           steps {
             echo 'Building...'
-            sh 'make build'
+            dir("./03-web-db") {
+              sh 'make build'
+            }
           }
         }
         stage('Deploy') {
