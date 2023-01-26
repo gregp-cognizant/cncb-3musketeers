@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+      PATH = "${env.PATH}:/usr/local/bin"
+    }
     stages {
         stage('Deploy') {
             steps {
@@ -9,7 +11,7 @@ pipeline {
                 sh 'ls -l'
                 dir("./03-web-db") {
                   sh 'pwd'
-                  sh 'PATH=${PATH}:/usr/local/bin && make run'
+                  sh 'make run'
                 }
 
             }
@@ -18,7 +20,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 dir("./03-web-db") {
-                  sh 'PATH=${PATH}:/usr/local/bin && make test'
+                  sh 'make test'
                 }
             }
         }
