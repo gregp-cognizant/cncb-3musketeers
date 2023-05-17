@@ -10,8 +10,8 @@ destroy:
 	${COMPOSE_DOWN_CMD}
 
 test:
-	docker compose run --rm curl run-tests.sh
+	docker-compose run --rm curl run-tests.sh
 
 help:
-	docker compose run --rm curl help.sh
+	docker-compose run --rm curl help.sh
 
