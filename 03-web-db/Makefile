@@ -30,9 +30,3 @@ test_db: ## runs database tests
 
 client: ## runs a container as an interactive terminal
 	docker-compose run --rm client
-
-help: ## prints this message
-	docker-compose run --rm make _help
-
-_help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
