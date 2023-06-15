@@ -9,7 +9,8 @@ build:  ## since we have no custom images, this will just pull the latest contai
 
 run: ## deploys the application
 	${CONTAINERCMD} volume create dbdata || true
-	docker-compose up -d webserver database data_load
+	docker-compose up -d webserver database
+	docker-compose run --rm data_load
 
 destroy: ## shuts everything down and cleans up the env
 	$(info Shutting everything down...)
